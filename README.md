@@ -39,3 +39,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 # Note
 - Owner has been transfered to https://github.com/jadist
+
+# Aknutman
+- Switch to working branch
