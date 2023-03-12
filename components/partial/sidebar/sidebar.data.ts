@@ -35,13 +35,13 @@ export const DefaultSidebarMenu: SidebarModel = {
         //   Description: "Creating a map between User Role and the Access Object",
         //   UrlSlug: ["/", "role-access-map"],
         // },
-        // {
-        //   Icon: "policy",
-        //   Name: "User Role",
-        //   Value: "user-role",
-        //   Description: "Contains the list of Applicable Role to Users",
-        //   UrlSlug: ["/", "user-role"],
-        // },
+        {
+          Icon: Solid20Icon.LockClosedIcon,
+          Name: "User Role",
+          Value: "user-role",
+          Description: "Contains the list of Applicable Role to Users",
+          UrlSlug: ["/", "user-role"],
+        },
         // {
         //   Icon: "person",
         //   Name: "User List",

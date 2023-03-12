@@ -63,6 +63,8 @@ function SelectMiniIcon({ iconName }: any) {
       return (
         <Solid20Icon.ArrowSmallLeftIcon className="w5 h-5 text-gray-500" />
       );
+    case Solid20Icon.LockClosedIcon:
+      return <Solid20Icon.LockClosedIcon className="w5 h-5 text-gray-500" />;
 
     default:
       return <Solid20Icon.HashtagIcon className="w-5 h-5 text-gray-500" />;
