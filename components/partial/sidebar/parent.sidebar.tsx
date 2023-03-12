@@ -39,7 +39,7 @@ export function ParentSideBar({ MenuItem, onItemClick }: ParentType) {
           ))}
         </>
       </div>
-      <div className="basis-1/12">Footer</div>
+      <div className="basis-1/12 box-content border-t-2">Footer</div>
     </div>
   );
 }
