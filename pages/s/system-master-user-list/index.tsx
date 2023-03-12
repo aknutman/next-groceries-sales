@@ -13,9 +13,5 @@ const data: ShifterModel = {
 };
 
 export default function SystemMasterUserList() {
-  return (
-    <>
-      <Shifter ShifterData={data.ShifterData} />
-    </>
-  );
+  return <Shifter ShifterData={data.ShifterData} />;
 }
