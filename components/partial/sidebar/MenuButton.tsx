@@ -65,6 +65,10 @@ function SelectMiniIcon({ iconName }: any) {
       );
     case Solid20Icon.LockClosedIcon:
       return <Solid20Icon.LockClosedIcon className="w5 h-5 text-gray-500" />;
+      case Solid20Icon.PuzzlePieceIcon:
+        return <Solid20Icon.PuzzlePieceIcon className="w5 h-5 text-gray-500" />;
+        case Solid20Icon.CircleStackIcon:
+          return <Solid20Icon.CircleStackIcon className="w5 h-5 text-gray-500" />;
 
     default:
       return <Solid20Icon.HashtagIcon className="w-5 h-5 text-gray-500" />;

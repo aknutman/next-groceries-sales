@@ -21,20 +21,20 @@ export const DefaultSidebarMenu: SidebarModel = {
       Description: "User List & Role",
       UrlSlug: ["/", "blabla"],
       Child: [
-        // {
-        //   Icon: "wysiwyg",
-        //   Name: "Access Object",
-        //   Value: "access-object",
-        //   Description: "Contains the list of Accessible Object by User",
-        //   UrlSlug: ["/", "access-object"],
-        // },
-        // {
-        //   Icon: "lock_person",
-        //   Name: "Role Access Map",
-        //   Value: "role-access-map",
-        //   Description: "Creating a map between User Role and the Access Object",
-        //   UrlSlug: ["/", "role-access-map"],
-        // },
+        {
+          Icon: Solid20Icon.CircleStackIcon,
+          Name: "Access Object",
+          Value: "access-object",
+          Description: "Contains the list of Accessible Object by User",
+          UrlSlug: ["/", "access-object"],
+        },
+        {
+          Icon: Solid20Icon.PuzzlePieceIcon,
+          Name: "Role Access Map",
+          Value: "role-access-map",
+          Description: "Creating a map between User Role and the Access Object",
+          UrlSlug: ["/", "role-access-map"],
+        },
         {
           Icon: Solid20Icon.LockClosedIcon,
           Name: "User Role",
@@ -42,13 +42,13 @@ export const DefaultSidebarMenu: SidebarModel = {
           Description: "Contains the list of Applicable Role to Users",
           UrlSlug: ["/", "user-role"],
         },
-        // {
-        //   Icon: "person",
-        //   Name: "User List",
-        //   Value: "user-list",
-        //   Description: "Contains the list of User registered in system",
-        //   UrlSlug: ["/", "user-list"],
-        // },
+        {
+          Icon: Solid20Icon.UsersIcon,
+          Name: "User List",
+          Value: "user-list",
+          Description: "Contains the list of User registered in system",
+          UrlSlug: ["/", "user-list"],
+        },
       ],
     },
     {
