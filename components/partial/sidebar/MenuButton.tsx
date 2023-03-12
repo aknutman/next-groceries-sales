@@ -25,7 +25,10 @@ export function MenuButton({ Icon, Name, Child, onItemClick }: MenuItemClick) {
   }
 
   return (
-    <button className="group flex w-full items-center rounded-md px-3 py-3 text-sm hover:bg-gray-200">
+    <button
+      className="group flex w-full items-center rounded-md px-3 py-3 text-sm hover:bg-gray-200"
+      onClick={onItemClick}
+    >
       <SelectMiniIcon iconName={Icon} />
       <span className="text-gray-600 font-semibold ml-2">{Name}</span>
     </button>

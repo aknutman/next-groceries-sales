@@ -19,7 +19,7 @@ export const DefaultSidebarMenu: SidebarModel = {
       Name: "Users",
       Value: "users",
       Description: "User List & Role",
-      UrlSlug: [""],
+      UrlSlug: ["/", "blabla"],
       Child: [
         // {
         //   Icon: "wysiwyg",
@@ -86,7 +86,7 @@ export const DefaultSidebarMenu: SidebarModel = {
       Name: "[T] Sales",
       Value: "transaction-sales",
       Description: "Transaction of Sales Activity",
-      UrlSlug: [""],
+      UrlSlug: ["/", "hahahaha"],
       Child: [
         // {
         //   Icon: "description",

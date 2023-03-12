@@ -1,62 +1,83 @@
 import * as Solid20Icon from "@heroicons/react/20/solid";
 import Image from "next/image";
 import React from "react";
-import { Item, MenuItem, SidebarModel } from "./sidebar/sidebar.model";
+import { Item, MenuItem } from "./sidebar/sidebar.model";
 import { DefaultSidebarMenu } from "./sidebar/sidebar.data";
 
 import { MenuButton } from "./sidebar/MenuButton";
 
+/**
+ * PLEASE REFACTOR
+ * Using React Context!
+ */
+
 interface ChildType {
   ChildItem?: Item[];
   ParentItem?: Item;
+  onItemClick?: any;
 }
 
-// interface MenuItemClick extends MenuItem {
-//   onItemClick: any;
-// }
+interface ParentType {
+  MenuItem: MenuItem[];
+  onItemClick?: any;
+}
 
 export default function Sidebar() {
   const [selectedItem, setSelectedItem] = React.useState({} as ChildType);
-
-  console.log("selectedItem: ", selectedItem.ChildItem);
 
   let nowItem: ChildType = {
     ChildItem: DefaultSidebarMenu.MenuItem[2].Child,
     ParentItem: DefaultSidebarMenu.MenuItem[2],
   };
 
-  function handleItemClick(item: any) {
-    console.log("handleItemClick is hit: ", item);
+  function handleItemClick(item: Item) {
+    if (item === null) {
+      setSelectedItem({ ChildItem: undefined });
+    } else {
+      const child = DefaultSidebarMenu.MenuItem.filter(
+        (i) => i.Value === item.Value
+      )[0]?.Child;
+
+      if (child && child.length > 0) {
+        setSelectedItem({
+          ChildItem: child,
+          ParentItem: item,
+        } as ChildType);
+      } else {
+        console.log("No Child, please load the body from url: ", item.UrlSlug);
+      }
+    }
   }
 
   if (!selectedItem.ChildItem) {
     return (
       <ParentSideBar
-        Header={DefaultSidebarMenu.Header}
         MenuItem={DefaultSidebarMenu.MenuItem}
+        onItemClick={(item: Item) => {
+          handleItemClick(item);
+        }}
       />
     );
   }
 
   return (
-    // <ParentSideBar
-    //   Header={DefaultSidebarMenu.Header}
-    //   MenuItem={DefaultSidebarMenu.MenuItem}
-    // />
     <ChildSideBar
       ChildItem={nowItem.ChildItem}
       ParentItem={nowItem.ParentItem}
+      onItemClick={(ckey: any) => {
+        handleItemClick(ckey);
+      }}
     />
   );
 }
 
-function ChildSideBar({ ChildItem, ParentItem }: ChildType) {
+function ChildSideBar({ ChildItem, ParentItem, onItemClick }: ChildType) {
   function handleBackClick() {
-    console.log("Back is clicked");
+    onItemClick(null);
   }
 
-  function handleItemClick(key: string) {
-    console.log("Child Item is clicked with value: ", key);
+  function handleItemClick(item: Item) {
+    onItemClick(item);
   }
 
   return (
@@ -82,7 +103,7 @@ function ChildSideBar({ ChildItem, ParentItem }: ChildType) {
             Value={item.Value}
             Description={item.Description}
             UrlSlug={item.UrlSlug}
-            onItemClick={() => handleItemClick(item.Value)}
+            onItemClick={() => handleItemClick(item)}
           />
         ))}
       </div>
@@ -90,13 +111,9 @@ function ChildSideBar({ ChildItem, ParentItem }: ChildType) {
   );
 }
 
-function ParentSideBar({ MenuItem }: SidebarModel, onItemClick: any) {
-  MenuItem.forEach((item) => {
-    console.log("item.Value of MenuItem: ", item.Value);
-  });
-
-  function handleItemClick(key: string) {
-    console.log("Parent Item is clicked with key: ", key);
+function ParentSideBar({ MenuItem, onItemClick }: ParentType) {
+  function handleItemClick(item: Item) {
+    onItemClick(item);
   }
 
   return (
@@ -121,7 +138,7 @@ function ParentSideBar({ MenuItem }: SidebarModel, onItemClick: any) {
               Value={item.Value}
               Description={item.Description}
               UrlSlug={item.UrlSlug}
-              onItemClick={() => handleItemClick(item.Value)}
+              onItemClick={() => handleItemClick(item)}
             />
           ))}
         </>
