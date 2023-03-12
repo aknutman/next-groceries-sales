@@ -56,19 +56,19 @@ function SelectMiniIcon({ iconName }: any) {
         <Solid20Icon.RectangleStackIcon className="w-5 h-5 text-gray-500" />
       );
     case Solid20Icon.MapPinIcon:
-      return <Solid20Icon.MapPinIcon className="w5 h-5 text-gray-500" />;
+      return <Solid20Icon.MapPinIcon className="w-5 h-5 text-gray-500" />;
     case Solid20Icon.ChevronRightIcon:
-      return <Solid20Icon.ChevronRightIcon className="w5 h-5 text-gray-500" />;
+      return <Solid20Icon.ChevronRightIcon className="w-5 h-5 text-gray-500" />;
     case Solid20Icon.ArrowSmallLeftIcon:
       return (
-        <Solid20Icon.ArrowSmallLeftIcon className="w5 h-5 text-gray-500" />
+        <Solid20Icon.ArrowSmallLeftIcon className="w-5 h-5 text-gray-500" />
       );
     case Solid20Icon.LockClosedIcon:
-      return <Solid20Icon.LockClosedIcon className="w5 h-5 text-gray-500" />;
+      return <Solid20Icon.LockClosedIcon className="w-5 h-5 text-gray-500" />;
       case Solid20Icon.PuzzlePieceIcon:
-        return <Solid20Icon.PuzzlePieceIcon className="w5 h-5 text-gray-500" />;
+        return <Solid20Icon.PuzzlePieceIcon className="w-5 h-5 text-gray-500" />;
         case Solid20Icon.CircleStackIcon:
-          return <Solid20Icon.CircleStackIcon className="w5 h-5 text-gray-500" />;
+          return <Solid20Icon.CircleStackIcon className="w-5 h-5 text-gray-500" />;
 
     default:
       return <Solid20Icon.HashtagIcon className="w-5 h-5 text-gray-500" />;
