@@ -16,16 +16,12 @@ export default function Sidebar() {
   const [selectedItem, setSelectedItem] = React.useState({} as ChildType);
 
   function handleItemClick(item: Item) {
-    console.log("item", item);
-
     if (item === null) {
       setSelectedItem({ ChildItem: undefined });
     } else {
       const child = DefaultSidebarMenu.MenuItem.filter(
         (i) => i.Value === item.Value
       )[0]?.Child;
-
-      console.log("child: ", child);
 
       if (child && child.length > 0) {
         setSelectedItem({
