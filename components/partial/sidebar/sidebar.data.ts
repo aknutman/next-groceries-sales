@@ -1,4 +1,4 @@
-import * as Solid20Icon from "@heroicons/react/20/solid";
+import * as Solid20Icon from "@heroicons/react/24/outline";
 import { SidebarModel } from "./sidebar.model";
 
 export const DefaultSidebarMenu: SidebarModel = {
@@ -105,4 +105,8 @@ export const DefaultSidebarMenu: SidebarModel = {
       ],
     },
   ],
+  Footer: {
+    Name: "Eldest Pasirula",
+    ImageUrl: "/Images/tom-cook.avif",
+  },
 };

@@ -38,6 +38,7 @@ export default function Sidebar() {
     return (
       <ParentSideBar
         MenuItem={DefaultSidebarMenu.MenuItem}
+        Footer={DefaultSidebarMenu.Footer}
         onItemClick={(item: Item) => {
           handleItemClick(item);
         }}

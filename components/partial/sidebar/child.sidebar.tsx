@@ -1,4 +1,4 @@
-import * as Solid20Icon from "@heroicons/react/20/solid";
+import * as Solid20Icon from "@heroicons/react/24/outline";
 import { MenuButton } from "./MenuButton";
 import { Item } from "./sidebar.model";
 
@@ -22,7 +22,7 @@ export function ChildSideBar({
   }
 
   return (
-    <div className="flex flex-col bg-white rounded-md shadow-lg w-full h-full p-2 border-r-2">
+    <div className="flex flex-col bg-indigo-700 shadow-lg w-full h-full p-2 border-r-2">
       <div className="basis-1/12">
         <MenuButton
           key={ParentItem?.Value}

@@ -1,19 +1,21 @@
 import Image from "next/image";
 import { MenuButton } from "./MenuButton";
-import { Item, MenuItem } from "./sidebar.model";
+import { FooterButton } from "./FooterButton";
+import { Item, MenuItem, Footer } from "./sidebar.model";
 
 export interface ParentType {
   MenuItem: MenuItem[];
   onItemClick?: any;
+  Footer: Footer;
 }
 
-export function ParentSideBar({ MenuItem, onItemClick }: ParentType) {
+export function ParentSideBar({ MenuItem, Footer, onItemClick }: ParentType) {
   function handleItemClick(item: Item) {
     onItemClick(item);
   }
 
   return (
-    <div className="flex flex-col bg-white rounded-md shadow-lg w-full h-full p-2 border-r-2">
+    <div className="flex flex-col bg-indigo-700 shadow-lg w-full h-full p-2">
       <div className="basis-1/12 pt-4 pl-3">
         <Image
           className="mx-auto h-12 w-12 inline-block align-middle"
@@ -39,7 +41,10 @@ export function ParentSideBar({ MenuItem, onItemClick }: ParentType) {
           ))}
         </>
       </div>
-      <div className="basis-1/12 box-content border-t-2">Footer</div>
+      <hr className="box-border border-double border-indigo-900 border-1" />
+      <div className="basis-1/12">
+        <FooterButton Name={Footer.Name} ImageUrl={Footer.ImageUrl} />
+      </div>
     </div>
   );
 }
