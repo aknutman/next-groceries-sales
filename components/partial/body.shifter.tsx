@@ -81,26 +81,26 @@ export default function BodyShifter() {
           <table className="w-full">
             <thead>
               <tr className="border-b-2">
-                <th className="py-4 text-left">Song</th>
-                <th className="py-4 text-left">Artist</th>
-                <th className="py-4 text-left">Year</th>
+                <th className="p-4 text-left">Song</th>
+                <th className="p-4 text-left">Artist</th>
+                <th className="p-4 text-left">Year</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b hover:cursor-pointer hover:bg-slate-100">
-                <td className="py-3">
+              <tr className="border-b hover:cursor-pointer hover:bg-indigo-50">
+                <td className="p-3">
                   The Sliding Mr. Bones (Next Stop, Pottersville)
                 </td>
                 <td>Malcolm Lockyer</td>
                 <td>1961</td>
               </tr>
-              <tr className="border-b hover:cursor-pointer hover:bg-slate-100">
-                <td className="py-3">Witchy Woman</td>
+              <tr className="border-b hover:cursor-pointer hover:bg-indigo-50">
+                <td className="p-3">Witchy Woman</td>
                 <td>The Eagles</td>
                 <td>1972</td>
               </tr>
-              <tr className="border-b hover:cursor-pointer hover:bg-slate-100">
-                <td className="py-3">Shining Star</td>
+              <tr className="border-b hover:cursor-pointer hover:bg-indigo-50">
+                <td className="p-3">Shining Star</td>
                 <td>Earth, Wind, and Fire</td>
                 <td>1975</td>
               </tr>
