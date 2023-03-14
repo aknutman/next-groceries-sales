@@ -13,7 +13,7 @@ import React from "react";
 export default function BodyShifter() {
   return (
     <>
-      <div className="bg-white p-3 shadow lg:flex lg:items-center lg:justify-between">
+      <div className="bg-white py-4 px-3 shadow lg:flex lg:items-center lg:justify-between">
         <div className="min-w-0 flex-1">
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
             Title is Here
@@ -77,10 +77,10 @@ export default function BodyShifter() {
       </div>
 
       <div className="m-5 shadow">
-        <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div className="flex items-center justify-between bg-white px-4 py-3 sm:px-6">
           <table className="w-full">
             <thead>
-              <tr className="border-b-2">
+              <tr className="border-b">
                 <th className="p-4 text-left">Song</th>
                 <th className="p-4 text-left">Artist</th>
                 <th className="p-4 text-left">Year</th>
@@ -108,7 +108,7 @@ export default function BodyShifter() {
           </table>
         </div>
 
-        <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+        <div className="justify-betwee flex items-center bg-white px-4 py-3 sm:px-6">
           <div className="sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
               <p className="text-sm text-gray-700">
