@@ -8,8 +8,8 @@ const OptionType = {
 
 export interface Column {
   OrderIndex: number;
-  ColumnDef?: string;
-  Header?: string;
+  ColumnDefinition?: string;
+  ColumnName?: string;
   Cell?: Function;
   Hidden?: boolean;
   Id?: boolean;

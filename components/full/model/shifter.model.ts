@@ -1,3 +1,5 @@
+import { Column } from "../../partial/body.shifter/table.body.shifter/table.model";
+
 /**
  * Every optional property, the default value will be considered as FALSY
  * Set the property name wise!
@@ -20,22 +22,7 @@ export interface ShifterModel {
       Hide: boolean;
     };
     Body: {
-      Column: {
-        ColumnDefinition: string;
-        ColumnName: string;
-        ColumnDescription?: string;
-        IsId?: boolean;
-        Required?: boolean;
-        Unique?: boolean;
-        ReadOnly?: boolean;
-        ValueType?: typeof OptionType[keyof typeof OptionType];
-        Options?: {
-          List: {
-            name: string;
-            value: string | number | boolean;
-          }[];
-        };
-      };
+      Column: Column[];
     };
   };
 }

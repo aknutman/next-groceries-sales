@@ -1,6 +1,9 @@
 import { Column } from "./table.model";
 
-export default function TableShifter() {
+interface TableColumn {
+  ColumnModel: Column[];
+}
+export default function TableShifter({ ColumnModel }: TableColumn) {
   const orderedColumn = ColumnModel.slice().sort(
     (n1: Column, n2: Column) => n1.OrderIndex - n2.OrderIndex
   );
@@ -23,8 +26,8 @@ function CTHead({ Column }: ColumnType) {
     <thead>
       <tr className="border-b">
         {Column.filter((col) => !col.Hidden).map((col) => (
-          <th key={col.ColumnDef} className="p-4 text-left">
-            {col.Header}
+          <th key={col.ColumnDefinition} className="p-4 text-left">
+            {col.ColumnName}
           </th>
         ))}
       </tr>
@@ -48,13 +51,13 @@ function CTBody({ RowData, Column }: RowType) {
             <td
               key={String(row.Id).concat(
                 ".",
-                String(col.ColumnDef),
+                String(col.ColumnDefinition),
                 ".",
-                row[String(col.ColumnDef)]
+                row[String(col.ColumnDefinition)]
               )}
               className="p-3"
             >
-              {row[String(col.ColumnDef)]}
+              {row[String(col.ColumnDefinition)]}
             </td>
           ))}
         </tr>
@@ -66,66 +69,66 @@ function CTBody({ RowData, Column }: RowType) {
 /**
  * DONT FORGET TO MOVE BELOW DATA
  */
-export const ColumnModel: Column[] = [
-  {
-    ColumnDef: "Id",
-    Header: "Id",
-    Cell: (element: Record<string, any>) => `${element["Id"]}`,
-    Id: true,
-    Readonly: true,
-    OrderIndex: 1,
-  },
-  {
-    ColumnDef: "Username",
-    Header: "Username",
-    Cell: (element: Record<string, any>) => `${element["Username"]}`,
-    OrderIndex: 2,
-    Required: true,
-  },
-  {
-    ColumnDef: "EmailAddress",
-    Header: "Email Address",
-    Cell: (element: Record<string, any>) => `${element["EmailAddress"]}`,
-    OrderIndex: 3,
-    Required: true,
-  },
-  {
-    ColumnDef: "FullName",
-    Header: "Full Name",
-    Cell: (element: Record<string, any>) => `${element["FullName"]}`,
-    OrderIndex: 4,
-  },
-  {
-    ColumnDef: "PhoneNo",
-    Header: "Phone No",
-    Cell: (element: Record<string, any>) => `${element["PhoneNo"]}`,
-    OrderIndex: 5,
-    ValueType: "number",
-    Required: true,
-  },
-  {
-    ColumnDef: "UserRoleReference",
-    Header: "User Role Reference",
-    Cell: (element: Record<string, any>) => `${element["UserRoleReference"]}`,
-    OrderIndex: 6,
-    ValueType: "options",
-    Options: {
-      List: [],
-      RemoteUrl: {
-        FirestoreCollectionName: "USER-ROLE",
-      },
-    },
-    Required: true,
-  },
-  {
-    ColumnDef: "DocVersion",
-    Header: "Doc Version",
-    Cell: (element: Record<string, any>) => `${element["DocVersion"]}`,
-    Hidden: true,
-    OrderIndex: 7,
-    ValueType: "number",
-  },
-];
+// export const ColumnModel: Column[] = [
+//   {
+//     ColumnDef: "Id",
+//     Header: "Id",
+//     Cell: (element: Record<string, any>) => `${element["Id"]}`,
+//     Id: true,
+//     Readonly: true,
+//     OrderIndex: 1,
+//   },
+//   {
+//     ColumnDef: "Username",
+//     Header: "Username",
+//     Cell: (element: Record<string, any>) => `${element["Username"]}`,
+//     OrderIndex: 2,
+//     Required: true,
+//   },
+//   {
+//     ColumnDef: "EmailAddress",
+//     Header: "Email Address",
+//     Cell: (element: Record<string, any>) => `${element["EmailAddress"]}`,
+//     OrderIndex: 3,
+//     Required: true,
+//   },
+//   {
+//     ColumnDef: "FullName",
+//     Header: "Full Name",
+//     Cell: (element: Record<string, any>) => `${element["FullName"]}`,
+//     OrderIndex: 4,
+//   },
+//   {
+//     ColumnDef: "PhoneNo",
+//     Header: "Phone No",
+//     Cell: (element: Record<string, any>) => `${element["PhoneNo"]}`,
+//     OrderIndex: 5,
+//     ValueType: "number",
+//     Required: true,
+//   },
+//   {
+//     ColumnDef: "UserRoleReference",
+//     Header: "User Role Reference",
+//     Cell: (element: Record<string, any>) => `${element["UserRoleReference"]}`,
+//     OrderIndex: 6,
+//     ValueType: "options",
+//     Options: {
+//       List: [],
+//       RemoteUrl: {
+//         FirestoreCollectionName: "USER-ROLE",
+//       },
+//     },
+//     Required: true,
+//   },
+//   {
+//     ColumnDef: "DocVersion",
+//     Header: "Doc Version",
+//     Cell: (element: Record<string, any>) => `${element["DocVersion"]}`,
+//     Hidden: true,
+//     OrderIndex: 7,
+//     ValueType: "number",
+//   },
+// ];
 
 const DATA: any[] = [
   {
