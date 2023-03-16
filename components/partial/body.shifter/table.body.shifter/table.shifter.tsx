@@ -1,9 +1,10 @@
 import { Column } from "./table.model";
 
-interface TableColumn {
+export default function TableShifter({
+  ColumnModel,
+}: {
   ColumnModel: Column[];
-}
-export default function TableShifter({ ColumnModel }: TableColumn) {
+}) {
   const orderedColumn = ColumnModel.slice().sort(
     (n1: Column, n2: Column) => n1.OrderIndex - n2.OrderIndex
   );
