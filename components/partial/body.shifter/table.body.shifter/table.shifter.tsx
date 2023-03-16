@@ -1,4 +1,4 @@
-import { Column, OptionType } from "./table.model";
+import { Column } from "./table.model";
 
 export default function TableShifter() {
   const orderedColumn = ColumnModel.slice().sort(

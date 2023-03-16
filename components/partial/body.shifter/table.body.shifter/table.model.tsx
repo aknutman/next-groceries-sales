@@ -1,4 +1,4 @@
-export const OptionType = {
+const OptionType = {
   String: "string",
   Number: "number",
   Boolean: "boolean",
