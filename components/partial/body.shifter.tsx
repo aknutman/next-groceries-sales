@@ -1,6 +1,6 @@
 import HeaderShifter from "./body.shifter/header.shifter";
-import PaginationShifter from "./body.shifter/pagination.shifter";
-import TableShifter from "./body.shifter/table.shifter";
+import PaginationShifter from "./body.shifter/table.body.shifter/pagination.shifter";
+import TableShifter from "./body.shifter/table.body.shifter/table.shifter";
 
 export default function BodyShifter() {
   return (
