@@ -40,23 +40,24 @@ function CTBody({ RowData, Column }: RowType) {
   return (
     <tbody>
       {RowData.map((row) => (
-        <>
-          <tr
-            key={row.Id}
-            className="border-b hover:cursor-pointer hover:bg-indigo-50"
-          >
-            {Column.filter((col) => !col.Hidden).map((col) => (
-              <>
-                <td
-                  key={String(row.Id).concat(row[String(col.ColumnDef)])}
-                  className="p-3"
-                >
-                  {row[String(col.ColumnDef)]}
-                </td>
-              </>
-            ))}
-          </tr>
-        </>
+        <tr
+          key={row.Id}
+          className="border-b hover:cursor-pointer hover:bg-indigo-50"
+        >
+          {Column.filter((col) => !col.Hidden).map((col) => (
+            <td
+              key={String(row.Id).concat(
+                ".",
+                String(col.ColumnDef),
+                ".",
+                row[String(col.ColumnDef)]
+              )}
+              className="p-3"
+            >
+              {row[String(col.ColumnDef)]}
+            </td>
+          ))}
+        </tr>
       ))}
     </tbody>
   );
