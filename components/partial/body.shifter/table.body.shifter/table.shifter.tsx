@@ -1,10 +1,10 @@
 import { Column } from "./table.model";
 
-export default function TableShifter({
-  ColumnModel,
-}: {
+interface Props {
   ColumnModel: Column[];
-}) {
+}
+
+export default function TableShifter({ ColumnModel }: Props) {
   const orderedColumn = ColumnModel.slice().sort(
     (n1: Column, n2: Column) => n1.OrderIndex - n2.OrderIndex
   );
@@ -70,67 +70,6 @@ function CTBody({ RowData, Column }: RowType) {
 /**
  * DONT FORGET TO MOVE BELOW DATA
  */
-// export const ColumnModel: Column[] = [
-//   {
-//     ColumnDef: "Id",
-//     Header: "Id",
-//     Cell: (element: Record<string, any>) => `${element["Id"]}`,
-//     Id: true,
-//     Readonly: true,
-//     OrderIndex: 1,
-//   },
-//   {
-//     ColumnDef: "Username",
-//     Header: "Username",
-//     Cell: (element: Record<string, any>) => `${element["Username"]}`,
-//     OrderIndex: 2,
-//     Required: true,
-//   },
-//   {
-//     ColumnDef: "EmailAddress",
-//     Header: "Email Address",
-//     Cell: (element: Record<string, any>) => `${element["EmailAddress"]}`,
-//     OrderIndex: 3,
-//     Required: true,
-//   },
-//   {
-//     ColumnDef: "FullName",
-//     Header: "Full Name",
-//     Cell: (element: Record<string, any>) => `${element["FullName"]}`,
-//     OrderIndex: 4,
-//   },
-//   {
-//     ColumnDef: "PhoneNo",
-//     Header: "Phone No",
-//     Cell: (element: Record<string, any>) => `${element["PhoneNo"]}`,
-//     OrderIndex: 5,
-//     ValueType: "number",
-//     Required: true,
-//   },
-//   {
-//     ColumnDef: "UserRoleReference",
-//     Header: "User Role Reference",
-//     Cell: (element: Record<string, any>) => `${element["UserRoleReference"]}`,
-//     OrderIndex: 6,
-//     ValueType: "options",
-//     Options: {
-//       List: [],
-//       RemoteUrl: {
-//         FirestoreCollectionName: "USER-ROLE",
-//       },
-//     },
-//     Required: true,
-//   },
-//   {
-//     ColumnDef: "DocVersion",
-//     Header: "Doc Version",
-//     Cell: (element: Record<string, any>) => `${element["DocVersion"]}`,
-//     Hidden: true,
-//     OrderIndex: 7,
-//     ValueType: "number",
-//   },
-// ];
-
 const DATA: any[] = [
   {
     Id: "4JniPdj6iVQkvFF1DWES",

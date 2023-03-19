@@ -4,11 +4,10 @@ import PaginationShifter from "./body.shifter/table.body.shifter/pagination.shif
 import { Column } from "./body.shifter/table.body.shifter/table.model";
 import TableShifter from "./body.shifter/table.body.shifter/table.shifter";
 
-export default function BodyShifter({
-  ColumnModel,
-}: {
+interface Props {
   ColumnModel: Column[];
-}) {
+}
+export default function BodyShifter({ ColumnModel }: Props) {
   return (
     <>
       <HeaderShifter />
