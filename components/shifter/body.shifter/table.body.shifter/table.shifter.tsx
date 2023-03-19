@@ -1,4 +1,4 @@
-import { Column } from "./table.model";
+import { Column } from "./model/table.model";
 
 interface Props {
   ColumnModel: Column[];

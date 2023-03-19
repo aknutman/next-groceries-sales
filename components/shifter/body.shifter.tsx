@@ -1,7 +1,7 @@
-import { ShifterModel } from "../full/model/shifter.model";
+import { ShifterModel } from "./model/shifter.model";
 import HeaderShifter from "./body.shifter/header.shifter";
 import PaginationShifter from "./body.shifter/table.body.shifter/pagination.shifter";
-import { Column } from "./body.shifter/table.body.shifter/table.model";
+import { Column } from "./body.shifter/table.body.shifter/model/table.model";
 import TableShifter from "./body.shifter/table.body.shifter/table.shifter";
 
 interface Props {

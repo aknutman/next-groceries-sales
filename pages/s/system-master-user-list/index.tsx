@@ -1,5 +1,5 @@
-import Shifter from "../../../components/full/shifter";
-import { ShifterModel } from "../../../components/full/model/shifter.model";
+import Shifter from "../../../components/shifter/shifter";
+import { ShifterModel } from "../../../components/shifter/model/shifter.model";
 
 const data: ShifterModel = {
   Body: {

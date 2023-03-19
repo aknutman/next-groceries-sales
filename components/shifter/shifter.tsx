@@ -1,6 +1,6 @@
 import { ShifterModel } from "./model/shifter.model";
-import Sidebar from "../partial/sidebar";
-import BodyShifter from "../partial/body.shifter";
+import Sidebar from "./sidebar";
+import BodyShifter from "./body.shifter";
 import React from "react";
 
 interface Props {
