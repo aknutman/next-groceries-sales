@@ -1,11 +1,9 @@
-import * as Solid20Icon from "@heroicons/react/20/solid";
-
 import React from "react";
-import { Item, MenuItem } from "./sidebar/sidebar.model";
+import { Item } from "./sidebar/sidebar.model";
 import { DefaultSidebarMenu } from "./sidebar/sidebar.data";
 
 import { ChildSideBar, ChildType } from "./sidebar/child.sidebar";
-import { ParentSideBar, ParentType } from "./sidebar/parent.sidebar";
+import { ParentSideBar } from "./sidebar/parent.sidebar";
 
 /**
  * PLEASE REFACTOR

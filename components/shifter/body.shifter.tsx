@@ -1,4 +1,3 @@
-import { ShifterModel } from "./model/shifter.model";
 import HeaderShifter from "./body.shifter/header.shifter";
 import PaginationShifter from "./body.shifter/table.body.shifter/pagination.shifter";
 import { Column } from "./body.shifter/table.body.shifter/model/table.model";
