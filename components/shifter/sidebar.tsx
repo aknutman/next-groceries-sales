@@ -1,4 +1,6 @@
 import React from "react";
+import { useRouter } from "next/router";
+
 import { Item } from "./sidebar/sidebar.model";
 import { DefaultSidebarMenu } from "./sidebar/sidebar.data";
 
@@ -11,6 +13,8 @@ import { ParentSideBar } from "./sidebar/parent.sidebar";
  */
 
 export default function Sidebar() {
+  let router = useRouter();
+
   const [selectedItem, setSelectedItem] = React.useState({} as ChildType);
 
   function handleItemClick(item: Item) {
@@ -27,7 +31,7 @@ export default function Sidebar() {
           ParentItem: item,
         } as ChildType);
       } else {
-        console.log("No Child, please load the body from url: ", item.UrlSlug);
+        router.push(item.UrlSlug.join(""));
       }
     }
   }
