@@ -1,18 +1,21 @@
 import HeaderShifter from "./body.shifter/header.shifter";
 import PaginationShifter from "./body.shifter/table.body.shifter/pagination.shifter";
-import { Column } from "./body.shifter/table.body.shifter/model/table.model";
 import TableShifter from "./body.shifter/table.body.shifter/table.shifter";
+import { BodyModel, TopBarModel } from "./model/shifter.model";
 
 interface Props {
-  ColumnModel: Column[];
-  ContentUrl?: string;
+  TopBar: TopBarModel;
+  Body: BodyModel;
 }
-export default function BodyShifter({ ColumnModel, ContentUrl }: Props) {
+export default function BodyShifter({ TopBar, Body }: Props) {
   return (
     <>
-      <HeaderShifter />
+      <HeaderShifter TopBar={TopBar} />
       <div className="m-5 shadow">
-        <TableShifter ColumnModel={ColumnModel} ContentUrl={ContentUrl} />
+        <TableShifter
+          ColumnModel={Body.Column}
+          ContentUrl={Body.Row?.SourceUrl}
+        />
         <PaginationShifter />
       </div>
     </>

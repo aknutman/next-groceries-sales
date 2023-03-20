@@ -13,10 +13,7 @@ export default function Shifter({ ShifterData }: Props) {
         <Sidebar />
       </div>
       <div className="basis-5/6 bg-gray-200">
-        <BodyShifter
-          ColumnModel={ShifterData.Body.Column}
-          ContentUrl={String(ShifterData.Body.Row?.SourceUrl)}
-        />
+        <BodyShifter TopBar={ShifterData.TopBar} Body={ShifterData.Body} />
       </div>
     </div>
   );

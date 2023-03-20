@@ -2,6 +2,10 @@ import Shifter from "../../../components/shifter/shifter";
 import { ShifterModel } from "../../../components/shifter/model/shifter.model";
 
 const data: ShifterModel = {
+  TopBar: {
+    Hide: false,
+    Title: "User List",
+  },
   Body: {
     Column: [
       {

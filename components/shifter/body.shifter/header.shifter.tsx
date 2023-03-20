@@ -1,14 +1,15 @@
-import {
-  ArrowPathIcon,
-  PlusIcon,
-} from "@heroicons/react/20/solid";
+import { ArrowPathIcon, PlusIcon } from "@heroicons/react/20/solid";
+import { TopBarModel } from "../model/shifter.model";
 
-export default function HeaderShifter() {
+interface Props {
+  TopBar: TopBarModel;
+}
+export default function HeaderShifter({ TopBar }: Props) {
   return (
     <div className="bg-white py-4 px-3 shadow lg:flex lg:items-center lg:justify-between">
       <div className="min-w-0 flex-1">
         <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-          Title is Here
+          {TopBar.Title}
         </h2>
         {/* <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
           <div className="mt-2 flex items-center text-sm text-gray-500">
