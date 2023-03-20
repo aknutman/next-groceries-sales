@@ -1,4 +1,4 @@
-import db from "../../utils/db";
+import db from "../../../../utils/db";
 
 interface ResType {
   status: (arg0: number) => {
@@ -11,7 +11,12 @@ interface ResType {
 
 export default async function ApiEntries(req: any, res: ResType) {
   try {
-    const entries = await db.collection("USER-LIST").get();
+    const collectionParam = String(req.url)
+      .split("?")[1]
+      .split("collection")[1]
+      .replace("=", "");
+
+    const entries = await db.collection(collectionParam).get();
 
     const entriesData = entries.docs.map((entry) => ({
       Id: entry.id,

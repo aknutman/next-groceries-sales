@@ -5,13 +5,14 @@ import TableShifter from "./body.shifter/table.body.shifter/table.shifter";
 
 interface Props {
   ColumnModel: Column[];
+  ContentUrl?: string;
 }
-export default function BodyShifter({ ColumnModel }: Props) {
+export default function BodyShifter({ ColumnModel, ContentUrl }: Props) {
   return (
     <>
       <HeaderShifter />
       <div className="m-5 shadow">
-        <TableShifter ColumnModel={ColumnModel} />
+        <TableShifter ColumnModel={ColumnModel} ContentUrl={ContentUrl} />
         <PaginationShifter />
       </div>
     </>

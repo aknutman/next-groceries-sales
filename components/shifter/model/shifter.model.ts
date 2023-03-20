@@ -11,9 +11,7 @@ export interface ShifterModel {
   Body: {
     Column: Column[];
     Row?: {
-      SourceUrl: {
-        [key: string]: string;
-      };
+      SourceUrl: string;
     };
   };
 }

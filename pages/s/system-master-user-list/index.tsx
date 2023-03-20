@@ -53,6 +53,9 @@ const data: ShifterModel = {
         ValueType: "number",
       },
     ],
+    Row: {
+      SourceUrl: "USER-LIST",
+    },
   },
 };
 
