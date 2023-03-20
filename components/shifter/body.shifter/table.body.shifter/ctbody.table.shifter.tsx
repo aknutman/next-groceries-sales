@@ -1,10 +1,11 @@
 import { Column } from "./model/table.model";
 
-interface RowType {
+interface Props {
   Column: Column[];
   RowData: any[];
+  onRowClick: (Id: string) => void;
 }
-export default function CTBody({ RowData, Column }: RowType) {
+export default function CTBody({ RowData, Column, onRowClick }: Props) {
   return (
     <tbody>
       {RowData.map((row) => (
@@ -20,6 +21,7 @@ export default function CTBody({ RowData, Column }: RowType) {
                 ".",
                 row[String(col.ColumnDefinition)]
               )}
+              onClick={() => onRowClick(String(row.Id))}
               className="p-3"
             >
               {row[String(col.ColumnDefinition)]}

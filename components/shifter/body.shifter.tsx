@@ -6,8 +6,9 @@ import { BodyModel, TopBarModel } from "./model/shifter.model";
 interface Props {
   TopBar: TopBarModel;
   Body: BodyModel;
+  onRowClick: (Id: string) => void;
 }
-export default function BodyShifter({ TopBar, Body }: Props) {
+export default function BodyShifter({ TopBar, Body, onRowClick }: Props) {
   return (
     <>
       <HeaderShifter TopBar={TopBar} />
@@ -15,6 +16,7 @@ export default function BodyShifter({ TopBar, Body }: Props) {
         <TableShifter
           ColumnModel={Body.Column}
           ContentUrl={Body.Row?.SourceUrl}
+          onRowClick={onRowClick}
         />
         <PaginationShifter />
       </div>
