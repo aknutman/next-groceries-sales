@@ -3,9 +3,15 @@ import { Column } from "./model/table.model";
 interface Props {
   Column: Column[];
   RowData: any[];
-  onRowClick: (Id: string) => void;
+  onRowClick: (row: any) => void;
 }
 export default function CTBody({ RowData, Column, onRowClick }: Props) {
+  function handleRowClick(Id: string) {
+    const selectedRow = RowData.slice().filter((row) => row.Id === Id);
+
+    if (selectedRow.length > 0) onRowClick(selectedRow[0]);
+  }
+
   return (
     <tbody>
       {RowData.map((row) => (
@@ -21,7 +27,7 @@ export default function CTBody({ RowData, Column, onRowClick }: Props) {
                 ".",
                 row[String(col.ColumnDefinition)]
               )}
-              onClick={() => onRowClick(String(row.Id))}
+              onClick={() => handleRowClick(String(row.Id))}
               className="p-3"
             >
               {row[String(col.ColumnDefinition)]}

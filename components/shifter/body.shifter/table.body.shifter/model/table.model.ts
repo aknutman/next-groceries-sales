@@ -1,10 +1,12 @@
-const OptionType = {
+const InputType = {
   String: "string",
   Number: "number",
   Boolean: "boolean",
   RichText: "richtext",
   Options: "options",
 } as const;
+
+export type InputValueType = typeof InputType[keyof typeof InputType];
 
 export interface Column {
   OrderIndex: number;
@@ -14,7 +16,7 @@ export interface Column {
   Hidden?: boolean;
   Id?: boolean;
   Readonly?: boolean;
-  ValueType?: (typeof OptionType)[keyof typeof OptionType];
+  ValueType?: InputValueType;
   Options?: {
     List: {
       name: string;

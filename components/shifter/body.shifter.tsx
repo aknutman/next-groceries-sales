@@ -6,7 +6,7 @@ import { BodyModel, TopBarModel } from "./model/shifter.model";
 interface Props {
   TopBar: TopBarModel;
   Body: BodyModel;
-  onRowClick: (Id: string) => void;
+  onRowClick: (row: any) => void;
 }
 export default function BodyShifter({ TopBar, Body, onRowClick }: Props) {
   return (

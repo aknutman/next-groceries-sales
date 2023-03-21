@@ -8,7 +8,7 @@ import useSWR from "swr";
 interface Props {
   ColumnModel: Column[];
   ContentUrl?: string;
-  onRowClick: (Id: string) => void;
+  onRowClick: (row: any) => void;
 }
 export default function TableShifter({
   ColumnModel,

@@ -1,4 +1,4 @@
-import { ShifterModel } from "./model/shifter.model";
+import { BodyModel, ShifterModel } from "./model/shifter.model";
 import Sidebar from "./sidebar";
 import BodyShifter from "./body.shifter";
 import React, { useState } from "react";
@@ -9,13 +9,15 @@ interface Props {
 }
 export default function Shifter({ ShifterData }: Props) {
   const [open, setOpen] = useState(false);
+  const [detail, setDetail] = useState({} as any);
 
   function handleOpenChange(newStatus: boolean) {
     setOpen(newStatus);
   }
 
-  function handleRowClick(Id: string) {
-    console.log("Row is clicked with Id: ", Id);
+  function handleRowClick(row: any) {
+    setDetail(row);
+
     setOpen(true);
   }
 
@@ -33,7 +35,11 @@ export default function Shifter({ ShifterData }: Props) {
           />
         </div>
       </div>
-      <Overlaybar onOpenChange={handleOpenChange} openStatus={open} />
+      <Overlaybar
+        onOpenChange={handleOpenChange}
+        bodyData={detail}
+        openStatus={open}
+      />
     </>
   );
 }

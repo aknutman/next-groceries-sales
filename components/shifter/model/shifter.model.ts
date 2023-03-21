@@ -8,7 +8,8 @@ export interface TopBarModel {
 export interface BodyModel {
   Column: Column[];
   Row?: {
-    SourceUrl: string;
+    SourceUrl?: string;
+    List?: any[];
   };
 }
 

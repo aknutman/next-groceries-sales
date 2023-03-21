@@ -1,14 +1,18 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { BodyModel } from "./model/shifter.model";
 
 interface Props {
   openStatus: boolean;
   onOpenChange: (newValue: boolean) => void;
+  bodyData: any;
 }
-export default function Overlaybar({ openStatus, onOpenChange }: Props) {
-  // const [open, setOpen] = useState(true);
-
+export default function Overlaybar({
+  openStatus,
+  onOpenChange,
+  bodyData,
+}: Props) {
   return (
     <Transition.Root show={openStatus} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onOpenChange}>
@@ -60,11 +64,12 @@ export default function Overlaybar({ openStatus, onOpenChange }: Props) {
                   <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                     <div className="px-4 sm:px-6">
                       <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
-                        Panel title
+                        Details
                       </Dialog.Title>
                     </div>
                     <div className="relative mt-6 flex-1 px-4 sm:px-6">
                       {/* Your content */}
+                      <OverlayContent detail={bodyData} />
                     </div>
                   </div>
                 </Dialog.Panel>
@@ -74,5 +79,66 @@ export default function Overlaybar({ openStatus, onOpenChange }: Props) {
         </div>
       </Dialog>
     </Transition.Root>
+  );
+}
+
+interface ContentProps {
+  detail: any;
+}
+function OverlayContent({ detail }: ContentProps) {
+  const detailArr = Object.entries(detail);
+  console.log("detailArr: ", detailArr);
+
+  return (
+    <>
+      <div className="mt-10 sm:mt-0">
+        <form action="#" method="POST">
+          <div className="overflow-hidden">
+            <div className="bg-white ">
+              <div className="grid grid-cols-6 gap-6">
+                {detailArr.map((item) => (
+                  <Textbox key={item[0]} value={String(item[1])} />
+                ))}
+              </div>
+            </div>
+            <div className="bg-gray-50 px-4 py-3 text-right sm:px-6">
+              <button
+                type="submit"
+                className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </>
+  );
+}
+
+interface TextboxType {
+  value: string;
+}
+function Textbox({ value }: TextboxType) {
+  return (
+    <>
+      <div className="col-span-6">
+        <label
+          htmlFor="street-address"
+          className="block text-sm font-medium leading-6 text-gray-900"
+        >
+          Label of {value}
+        </label>
+        <input
+          value={value}
+          readOnly
+          type="text"
+          name="street-address"
+          id="street-address"
+          autoComplete="street-address"
+          className="mt-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+      </div>
+    </>
   );
 }
