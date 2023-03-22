@@ -11,6 +11,7 @@ export type InputValueType = typeof InputType[keyof typeof InputType];
 interface CellDefinition {
   OrderIndex: number;
   ColumnDefinition?: string;
+  ValueType?: InputValueType;
 }
 export interface ColumnCell extends CellDefinition {
   ColumnName?: string;
@@ -18,7 +19,6 @@ export interface ColumnCell extends CellDefinition {
   Hidden?: boolean;
   Id?: boolean;
   Readonly?: boolean;
-  ValueType?: InputValueType;
   Options?: {
     List: {
       name: string;
