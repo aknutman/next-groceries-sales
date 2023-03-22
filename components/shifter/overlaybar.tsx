@@ -1,19 +1,19 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { ColumnCell } from "./body.shifter/table.body.shifter/model/table.model";
+import { ColumnCell, RowCell } from "./body.shifter/table.body.shifter/model/table.model";
 import OverlayContent from "./overlaybar/content.overlaybar";
 
 interface Props {
   openStatus: boolean;
   onOpenChange: (newValue: boolean) => void;
-  bodyData: any;
+  detail: RowCell[];
   column: ColumnCell[];
 }
 export default function Overlaybar({
   openStatus,
   onOpenChange,
-  bodyData,
+  detail,
   column,
 }: Props) {
   return (
@@ -72,7 +72,7 @@ export default function Overlaybar({
                     </div>
                     <div className="relative mt-6 flex-1 px-4 sm:px-6">
                       {/* Your content */}
-                      <OverlayContent detail={bodyData} column={column} />
+                      <OverlayContent detail={detail} column={column} />
                     </div>
                   </div>
                 </Dialog.Panel>

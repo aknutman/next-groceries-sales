@@ -1,6 +1,7 @@
 import {
   ColumnCell,
   InputValueType,
+  RowCell,
 } from "../body.shifter/table.body.shifter/model/table.model";
 import Checkbox from "./checkbox.overlaybar";
 import { InputBoxType } from "./model/input-box.model";
@@ -9,40 +10,20 @@ import RichTextbox from "./richtextbox.overlaybar";
 import Textbox from "./textbox.overlaybar";
 
 interface ContentProps {
-  detail: any;
+  detail: RowCell[];
   column: ColumnCell[];
 }
 export default function OverlayContent({ detail, column }: ContentProps) {
-  const detailArr = Object.entries(detail);
-  console.log("detailArr: ", detailArr);
-  console.log("column: ", column);
-
-  /**
-   * 0. Id
-   * 1. Value
-   * 2. Order
-   * 3. Hidden
-   */
-  const newDetailArr = detailArr
-    .map((detail) => {
-      const index = column.filter(
-        (col) => col.ColumnDefinition === detail[0]
-      )[0].OrderIndex;
-
-      const hidden = column.filter(
-        (col) => col.ColumnDefinition === detail[0]
+  const sortedDisplayedDetail = detail
+    .slice()
+    .sort((n1: any, n2: RowCell) => n1.OrderIndex - n2.OrderIndex)
+    .filter((item) => {
+      const isHidden = column.filter(
+        (col) => col.ColumnDefinition === item.ColumnDefinition
       )[0].Hidden;
 
-      return [
-        detail[0],
-        detail[1],
-        index,
-        String(hidden).toLowerCase() === "true",
-      ];
-    })
-    .sort((n1: any, n2: any) => n1[2] - n2[2]);
-
-  console.log("newDetailArr: ", newDetailArr);
+      return !isHidden;
+    });
 
   return (
     <>
@@ -51,15 +32,16 @@ export default function OverlayContent({ detail, column }: ContentProps) {
           <div className="overflow-hidden">
             <div className="bg-white ">
               <div className="grid grid-cols-6 gap-6">
-                {newDetailArr
-                  .filter((item) => !item[3])
-                  .map((item) => (
-                    <RenderInput
-                      key={String(item[0])}
-                      detail={{ Id: String(item[0]), value: String(item[1]) }}
-                      column={column}
-                    />
-                  ))}
+                {sortedDisplayedDetail.map((detail) => (
+                  <RenderInput
+                    key={detail.ColumnDefinition}
+                    detail={{
+                      Id: String(detail.ColumnDefinition),
+                      value: String(detail.Value),
+                    }}
+                    column={column}
+                  />
+                ))}
               </div>
             </div>
             <div className="bg-gray-50 py-3 text-right">

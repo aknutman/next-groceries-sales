@@ -3,19 +3,20 @@ import Sidebar from "./sidebar";
 import BodyShifter from "./body.shifter";
 import React, { useState } from "react";
 import Overlaybar from "./overlaybar";
+import { RowCell } from "./body.shifter/table.body.shifter/model/table.model";
 
 interface Props {
   ShifterData: ShifterModel;
 }
 export default function Shifter({ ShifterData }: Props) {
   const [open, setOpen] = useState(false);
-  const [detail, setDetail] = useState({} as any);
+  const [detail, setDetail] = useState({} as RowCell[]);
 
   function handleOpenChange(newStatus: boolean) {
     setOpen(newStatus);
   }
 
-  function handleRowClick(row: any) {
+  function handleRowClick(row: RowCell[]) {
     setDetail(row);
 
     setOpen(true);
@@ -37,7 +38,7 @@ export default function Shifter({ ShifterData }: Props) {
       </div>
       <Overlaybar
         onOpenChange={handleOpenChange}
-        bodyData={detail}
+        detail={detail}
         openStatus={open}
         column={ShifterData.Body.Column}
       />
