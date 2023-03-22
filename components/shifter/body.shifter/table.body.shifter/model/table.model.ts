@@ -8,9 +8,11 @@ const InputType = {
 
 export type InputValueType = typeof InputType[keyof typeof InputType];
 
-export interface Column {
+interface ColumnDefinition {
   OrderIndex: number;
   ColumnDefinition?: string;
+}
+export interface ColumnCell extends ColumnDefinition {
   ColumnName?: string;
   ColumnDescription?: string;
   Hidden?: boolean;
@@ -27,6 +29,10 @@ export interface Column {
     };
   };
   Required?: boolean;
+}
+
+export interface RowCell extends ColumnDefinition {
+  Value: string;
 }
 
 export interface PaginatorModel {

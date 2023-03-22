@@ -1,14 +1,14 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { Column } from "./body.shifter/table.body.shifter/model/table.model";
+import { ColumnCell } from "./body.shifter/table.body.shifter/model/table.model";
 import OverlayContent from "./overlaybar/content.overlaybar";
 
 interface Props {
   openStatus: boolean;
   onOpenChange: (newValue: boolean) => void;
   bodyData: any;
-  column: Column[];
+  column: ColumnCell[];
 }
 export default function Overlaybar({
   openStatus,

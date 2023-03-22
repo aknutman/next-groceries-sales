@@ -1,5 +1,5 @@
 import {
-  Column,
+  ColumnCell,
   InputValueType,
 } from "../body.shifter/table.body.shifter/model/table.model";
 import Checkbox from "./checkbox.overlaybar";
@@ -10,7 +10,7 @@ import Textbox from "./textbox.overlaybar";
 
 interface ContentProps {
   detail: any;
-  column: Column[];
+  column: ColumnCell[];
 }
 export default function OverlayContent({ detail, column }: ContentProps) {
   const detailArr = Object.entries(detail);

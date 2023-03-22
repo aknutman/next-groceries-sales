@@ -1,7 +1,7 @@
-import { Column } from "./model/table.model";
+import { ColumnCell } from "./model/table.model";
 
 interface ColumnType {
-  Column: Column[];
+  Column: ColumnCell[];
 }
 export default function CTHead({ Column }: ColumnType) {
   return (

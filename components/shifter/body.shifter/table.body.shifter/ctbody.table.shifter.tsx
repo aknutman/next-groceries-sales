@@ -1,7 +1,7 @@
-import { Column } from "./model/table.model";
+import { ColumnCell } from "./model/table.model";
 
 interface Props {
-  Column: Column[];
+  Column: ColumnCell[];
   RowData: any[];
   onRowClick: (row: any) => void;
 }

@@ -1,4 +1,4 @@
-import { Column } from "../body.shifter/table.body.shifter/model/table.model";
+import { ColumnCell, RowCell } from "../body.shifter/table.body.shifter/model/table.model";
 
 export interface TopBarModel {
   Hide: boolean;
@@ -6,10 +6,10 @@ export interface TopBarModel {
 }
 
 export interface BodyModel {
-  Column: Column[];
+  Column: ColumnCell[];
   Row?: {
     SourceUrl?: string;
-    List?: any[];
+    Rows?: RowCell[][];
   };
 }
 

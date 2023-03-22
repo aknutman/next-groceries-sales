@@ -1,4 +1,4 @@
-import { Column } from "./model/table.model";
+import { ColumnCell } from "./model/table.model";
 import CTHead from "./cthead.table.shifter";
 import CTBody from "./ctbody.table.shifter";
 
@@ -6,7 +6,7 @@ import axios from "axios";
 import useSWR from "swr";
 
 interface Props {
-  ColumnModel: Column[];
+  ColumnModel: ColumnCell[];
   ContentUrl?: string;
   onRowClick: (row: any) => void;
 }
@@ -16,7 +16,7 @@ export default function TableShifter({
   onRowClick,
 }: Props) {
   const orderedColumn = ColumnModel.slice().sort(
-    (n1: Column, n2: Column) => n1.OrderIndex - n2.OrderIndex
+    (n1: ColumnCell, n2: ColumnCell) => n1.OrderIndex - n2.OrderIndex
   );
 
   const { data, error, isLoading } = useSWR(
