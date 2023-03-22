@@ -54,7 +54,7 @@ export default function OverlayContent({ detail, column }: ContentProps) {
           }
           onClick={() => setEditMode(true)}
         />
-        
+
         <XMarkIcon
           className={
             "flex-initial h-5 w-5 hover:cursor-pointer " +
@@ -66,13 +66,6 @@ export default function OverlayContent({ detail, column }: ContentProps) {
         <div className="flex-1 text-base font-bold text-center">
           {editMode ? "Edit Mode" : ""}
         </div>
-
-        <CheckIcon
-          className={
-            "h-5 w-5 hover:cursor-pointer " + (editMode ? "" : "hidden")
-          }
-          onClick={() => setEditMode(false)}
-        />
       </div>
 
       <form onSubmit={handleFormSubmit} method="POST">
@@ -92,11 +85,7 @@ export default function OverlayContent({ detail, column }: ContentProps) {
               ))}
             </div>
           </div>
-          <div
-            className={
-              "px-6 py-3 text-right " + (editMode ? "" : "bg-gray-200")
-            }
-          >
+          <div className={"px-6 py-3 text-right " + (editMode ? "" : "hidden")}>
             <button
               className="inline-flex justify-center rounded-md bg-indigo-600 py-2 px-3 mb-4 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
               type="submit"
