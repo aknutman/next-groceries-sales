@@ -12,7 +12,7 @@ export interface Column {
   OrderIndex: number;
   ColumnDefinition?: string;
   ColumnName?: string;
-  Cell?: Function;
+  ColumnDescription?: string;
   Hidden?: boolean;
   Id?: boolean;
   Readonly?: boolean;
