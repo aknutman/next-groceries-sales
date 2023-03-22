@@ -17,15 +17,32 @@ export default function OverlayContent({ detail, column }: ContentProps) {
   console.log("detailArr: ", detailArr);
   console.log("column: ", column);
 
-  const numberedDetailArr = detailArr
+  /**
+   * 0. Id
+   * 1. Value
+   * 2. Order
+   * 3. Hidden
+   */
+  const newDetailArr = detailArr
     .map((detail) => {
       const index = column.filter(
         (col) => col.ColumnDefinition === detail[0]
       )[0].OrderIndex;
 
-      return [detail[0], detail[1], index];
+      const hidden = column.filter(
+        (col) => col.ColumnDefinition === detail[0]
+      )[0].Hidden;
+
+      return [
+        detail[0],
+        detail[1],
+        index,
+        String(hidden).toLowerCase() === "true",
+      ];
     })
     .sort((n1: any, n2: any) => n1[2] - n2[2]);
+
+  console.log("newDetailArr: ", newDetailArr);
 
   return (
     <>
@@ -34,13 +51,15 @@ export default function OverlayContent({ detail, column }: ContentProps) {
           <div className="overflow-hidden">
             <div className="bg-white ">
               <div className="grid grid-cols-6 gap-6">
-                {numberedDetailArr.map((item) => (
-                  <RenderInput
-                    key={String(item[0])}
-                    detail={{ Id: String(item[0]), value: String(item[1]) }}
-                    column={column}
-                  />
-                ))}
+                {newDetailArr
+                  .filter((item) => !item[3])
+                  .map((item) => (
+                    <RenderInput
+                      key={String(item[0])}
+                      detail={{ Id: String(item[0]), value: String(item[1]) }}
+                      column={column}
+                    />
+                  ))}
               </div>
             </div>
             <div className="bg-gray-50 py-3 text-right">
