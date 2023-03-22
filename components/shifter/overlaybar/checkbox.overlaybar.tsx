@@ -15,7 +15,7 @@ export default function Checkbox({ detail, column }: InputBoxType) {
         <div className="flex h-6 items-center">
           <input
             id={detail.Id}
-            checked={!!detail.value}
+            checked={String(detail.value).toLowerCase() === "true"}
             readOnly
             name={detail.Id}
             type="checkbox"

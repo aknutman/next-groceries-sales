@@ -17,13 +17,15 @@ export default function OverlayContent({ detail, column }: ContentProps) {
   console.log("detailArr: ", detailArr);
   console.log("column: ", column);
 
-  const detailArrContainBoolean = detailArr.map((detail) => {
-    const valType = column.filter(
-      (col) => col.ColumnDefinition === detail[0]
-    )[0].ValueType;
+  const numberedDetailArr = detailArr
+    .map((detail) => {
+      const index = column.filter(
+        (col) => col.ColumnDefinition === detail[0]
+      )[0].OrderIndex;
 
-    return [detail[0], detail[1], valType === "boolean"];
-  });
+      return [detail[0], detail[1], index];
+    })
+    .sort((n1: any, n2: any) => n1[2] - n2[2]);
 
   return (
     <>
@@ -32,27 +34,13 @@ export default function OverlayContent({ detail, column }: ContentProps) {
           <div className="overflow-hidden">
             <div className="bg-white ">
               <div className="grid grid-cols-6 gap-6">
-                {/* Render Non boolean input first */}
-                {detailArrContainBoolean
-                  .filter((det) => !det[2])
-                  .map((item) => (
-                    <RenderInput
-                      key={String(item[0])}
-                      detail={{ Id: String(item[0]), value: String(item[1]) }}
-                      column={column}
-                    />
-                  ))}
-
-                {/* Render boolean input later */}
-                {detailArrContainBoolean
-                  .filter((det) => det[2])
-                  .map((item) => (
-                    <RenderInput
-                      key={String(item[0])}
-                      detail={{ Id: String(item[0]), value: String(item[1]) }}
-                      column={column}
-                    />
-                  ))}
+                {numberedDetailArr.map((item) => (
+                  <RenderInput
+                    key={String(item[0])}
+                    detail={{ Id: String(item[0]), value: String(item[1]) }}
+                    column={column}
+                  />
+                ))}
               </div>
             </div>
             <div className="bg-gray-50 py-3 text-right">
