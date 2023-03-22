@@ -32,7 +32,7 @@ export interface ColumnCell extends CellDefinition {
 }
 
 export interface RowCell extends CellDefinition {
-  Value: string;
+  Value: any;
 }
 
 export interface PaginatorModel {
