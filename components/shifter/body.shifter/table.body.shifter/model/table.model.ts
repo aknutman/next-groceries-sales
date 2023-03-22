@@ -9,11 +9,11 @@ const InputType = {
 export type InputValueType = typeof InputType[keyof typeof InputType];
 
 interface CellDefinition {
+  OrderIndex: number;
   ColumnDefinition?: string;
   ValueType?: InputValueType;
 }
 export interface ColumnCell extends CellDefinition {
-  OrderIndex: number;
   ColumnName?: string;
   ColumnDescription?: string;
   Hidden?: boolean;
