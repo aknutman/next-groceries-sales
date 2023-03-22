@@ -17,6 +17,14 @@ export default function OverlayContent({ detail, column }: ContentProps) {
   console.log("detailArr: ", detailArr);
   console.log("column: ", column);
 
+  const detailArrContainBoolean = detailArr.map((detail) => {
+    const valType = column.filter(
+      (col) => col.ColumnDefinition === detail[0]
+    )[0].ValueType;
+
+    return [detail[0], detail[1], valType === "boolean"];
+  });
+
   return (
     <>
       <div className="mt-10 sm:mt-0">
@@ -24,13 +32,27 @@ export default function OverlayContent({ detail, column }: ContentProps) {
           <div className="overflow-hidden">
             <div className="bg-white ">
               <div className="grid grid-cols-6 gap-6">
-                {detailArr.map((item) => (
-                  <RenderInput
-                    key={item[0]}
-                    detail={{ Id: String(item[0]), value: String(item[1]) }}
-                    column={column}
-                  />
-                ))}
+                {/* Render Non boolean input first */}
+                {detailArrContainBoolean
+                  .filter((det) => !det[2])
+                  .map((item) => (
+                    <RenderInput
+                      key={String(item[0])}
+                      detail={{ Id: String(item[0]), value: String(item[1]) }}
+                      column={column}
+                    />
+                  ))}
+
+                {/* Render boolean input later */}
+                {detailArrContainBoolean
+                  .filter((det) => det[2])
+                  .map((item) => (
+                    <RenderInput
+                      key={String(item[0])}
+                      detail={{ Id: String(item[0]), value: String(item[1]) }}
+                      column={column}
+                    />
+                  ))}
               </div>
             </div>
             <div className="bg-gray-50 py-3 text-right">
