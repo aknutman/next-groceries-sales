@@ -1,6 +1,10 @@
 import { InputBoxType } from "./model/input-box.model";
 
-export default function RichTextbox({ detail, column }: InputBoxType) {
+export default function RichTextbox({
+  detail,
+  column,
+  editMode,
+}: InputBoxType) {
   const headerName: string = String(
     column.filter((col) => col.ColumnDefinition === detail.Id)[0].ColumnName
   );
@@ -15,8 +19,8 @@ export default function RichTextbox({ detail, column }: InputBoxType) {
           {headerName}
         </label>
         <textarea
-          value={detail.value}
-          readOnly
+          defaultValue={detail.value}
+          disabled={!editMode}
           rows={3}
           name={detail.Id}
           id={detail.Id}

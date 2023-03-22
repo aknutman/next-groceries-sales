@@ -1,6 +1,6 @@
 import { InputBoxType } from "./model/input-box.model";
 
-export default function Textbox({ detail, column }: InputBoxType) {
+export default function Textbox({ detail, column, editMode }: InputBoxType) {
   const headerName: string = String(
     column.filter((col) => col.ColumnDefinition === detail.Id)[0].ColumnName
   );
@@ -15,8 +15,8 @@ export default function Textbox({ detail, column }: InputBoxType) {
           {headerName}
         </label>
         <input
-          value={detail.value}
-          readOnly
+          defaultValue={detail.value}
+          disabled={!editMode}
           type="text"
           name={detail.Id}
           id={detail.Id}

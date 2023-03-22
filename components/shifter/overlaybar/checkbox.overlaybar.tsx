@@ -1,6 +1,6 @@
 import { InputBoxType } from "./model/input-box.model";
 
-export default function Checkbox({ detail, column }: InputBoxType) {
+export default function Checkbox({ detail, column, editMode }: InputBoxType) {
   const headerName: string = String(
     column.filter((col) => col.ColumnDefinition === detail.Id)[0].ColumnName
   );
@@ -16,7 +16,7 @@ export default function Checkbox({ detail, column }: InputBoxType) {
           <input
             id={detail.Id}
             checked={String(detail.value).toLowerCase() === "true"}
-            readOnly
+            disabled={!editMode}
             name={detail.Id}
             type="checkbox"
             className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"

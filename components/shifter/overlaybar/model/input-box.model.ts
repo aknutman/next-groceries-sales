@@ -6,4 +6,5 @@ export interface InputBoxType {
     value: string;
   };
   column: ColumnCell[];
+  editMode: boolean;
 }

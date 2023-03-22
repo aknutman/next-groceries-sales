@@ -1,7 +1,10 @@
 import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { ColumnCell, RowCell } from "./body.shifter/table.body.shifter/model/table.model";
+import {
+  ColumnCell,
+  RowCell,
+} from "./body.shifter/table.body.shifter/model/table.model";
 import OverlayContent from "./overlaybar/content.overlaybar";
 
 interface Props {
@@ -64,13 +67,13 @@ export default function Overlaybar({
                       </button>
                     </div>
                   </Transition.Child>
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                    <div className="px-4 sm:px-6">
+                  <div className="flex h-full flex-col overflow-y-scroll py-6 shadow-xl bg-white">
+                    <div className="px-6 mb-6">
                       <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
                         Details
                       </Dialog.Title>
                     </div>
-                    <div className="relative mt-6 flex-1 px-4 sm:px-6">
+                    <div className="relative flex-1">
                       {/* Your content */}
                       <OverlayContent detail={detail} column={column} />
                     </div>
