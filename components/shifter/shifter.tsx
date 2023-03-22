@@ -39,6 +39,7 @@ export default function Shifter({ ShifterData }: Props) {
         onOpenChange={handleOpenChange}
         bodyData={detail}
         openStatus={open}
+        column={ShifterData.Body.Column}
       />
     </>
   );
